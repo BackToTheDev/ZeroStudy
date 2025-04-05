@@ -1,6 +1,4 @@
-package day4;
-
-import java.util.Random;
+package week1.day4;
 
 public class ArrayExample {
     public static void main(String[] args) {
