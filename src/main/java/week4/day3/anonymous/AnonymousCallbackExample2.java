@@ -5,11 +5,8 @@ public class AnonymousCallbackExample2 {
         Downloader2 downloader2 = new Downloader2();
 
 
-        downloader2.download("ondisk", new DownloaderCallback2() {
-            @Override
-            public void onSuccess(String filename) {
-                System.out.println("다운로드 완료: " + filename);
-            }
+        downloader2.download("ondisk", filename -> {
+            System.out.println("다운로드 완료: " + filename);
         });
     }
 }
