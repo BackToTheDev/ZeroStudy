@@ -18,7 +18,7 @@ public class Arr3 {
         int minValue = Integer.MAX_VALUE;
 
         for(int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+            sum *= arr[i];
 
             if (maxValue < arr[i]) {
                 maxValue = arr[i];

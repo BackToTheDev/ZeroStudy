@@ -2,7 +2,7 @@ package week5.day1;
 import java.util.*;
 import java.io.*;
 
-public class arr4 {
+public class Arr4 {
     public static void main(String[] args) throws IOException{
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -32,5 +32,6 @@ public class arr4 {
             newArr[i] = originalArr[i];
         }
         originalArr = newArr;
+        return originalArr;
     }
 }
