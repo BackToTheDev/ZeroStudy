@@ -55,16 +55,24 @@ public class ArrayListMain {
             size++;
         }
 
+        public void remove(int index) {
+            if (index < 0 || index >= size) {
+                System.out.println("인덱스 범위 초과");
+                return;
+            }
+
+            for (int i = index; i < size - 1; i++) {
+                data[i] = data[i + 1];
+            }
+            size--;
+        }
+
         public void remove() {
             size--;
         }
 
-        public void get() {
-            StringBuffer sb = new StringBuffer();
-            for(int i = 0; i < size; i++) {
-                sb.append(i).append(" ");
-                System.out.println(sb.toString());
-            }
+        public int get(int index) {
+            return data[index];
         }
 
         private void resizeDataSize() {
@@ -93,6 +101,10 @@ public class ArrayListMain {
         list1.print(); // 1, 1번째 위치를 삭제하고 싶다.
         list1.add(0, 3);
         list1.print();
+        list1.remove(0);
+        list1.print();
+
+        System.out.println(list1.get(0));
 
 
     }
