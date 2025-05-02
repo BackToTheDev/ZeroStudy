@@ -1,14 +1,13 @@
 package week5.day4;
 import java.util.*;
-import java.io.*;
 
 public class Queue4 {
 
-    public static class Queue {
+    public static class MyQueue {
         private Stack<Integer> saveStack;
         private Stack<Integer> likeQueue;
 
-        public Queue() {
+        public MyQueue() {
             this.saveStack = new Stack<>();
             this.likeQueue = new Stack<>();
         }
@@ -18,17 +17,21 @@ public class Queue4 {
         }
 
         public int dequeue() {
-            if (likeQueue.isEmpty() && saveStackToLikeQueue()) {
+            if (likeQueue.isEmpty()) {
+                if (!saveStackToLikeQueue()) {
+                    return -1;
+                }
                 // S -> L
-                return -1;
             }
             return likeQueue.pop();
         }
 
         public int peek() {
-            if(likeQueue.isEmpty() && saveStackToLikeQueue()) {
+            if (likeQueue.isEmpty()) {
+                if (!saveStackToLikeQueue()) {
+                    return -1;
+                }
                 // S -> L
-                return -1;
             }
             return likeQueue.peek();
         }
@@ -48,7 +51,7 @@ public class Queue4 {
     }
 
     public static void main(String[] args) {
-        Queue queue = new Queue();
+        MyQueue queue = new MyQueue();
 
         queue.enqueue(1);
         queue.enqueue(2);

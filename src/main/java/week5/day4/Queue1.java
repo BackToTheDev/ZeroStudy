@@ -17,13 +17,14 @@ public class Queue1 {
 
         public void enqueue(int value) {
             if (size == arr.length) return;
-            this.arr[(++rear % arr.length)] = value;
+            rear = (rear + 1) % arr.length;
+            arr[rear] = value;
             size++;
         }
 
         public void dequeue() {
             if (size == 0) return;
-            front++;
+            front = (front + 1) % arr.length;
             size--;
         }
 

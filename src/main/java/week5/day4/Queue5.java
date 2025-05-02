@@ -33,7 +33,7 @@ public class Queue5 {
     }
 
     public static void main(String[] args) {
-        Queue4.Queue queue = new Queue4.Queue();
+        Queue queue = new Queue();
 
         queue.enqueue(1);
         queue.enqueue(2);
