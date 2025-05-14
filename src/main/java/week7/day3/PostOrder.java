@@ -1,19 +1,22 @@
 package week7.day3;
-import java.util.*;
 
-class Node1 {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Node3 {
     int value;
     Node right;
     Node left;
 
-    public Node1(int value) {
+    public Node3(int value) {
         this.value = value;
         this.left = null;
         this.right = null;
     }
 }
 
-public class BfsSelf {
+public class PostOrder {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
@@ -38,17 +41,17 @@ public class BfsSelf {
         }
 
         ArrayList<Integer> result = new ArrayList<>();
-        preOrder(root, result);
+        postOrder(root, result);
 
         System.out.println(result);
 
     }
 
-    public static void preOrder(Node node, List<Integer> result) {
+    public static void postOrder(Node node, List<Integer> result) {
         if (node != null) {
+            postOrder(node.left, result);
+            postOrder(node.right, result);
             result.add(node.value);
-            preOrder(node.left, result);
-            preOrder(node.right, result);
         }
     }
 }
