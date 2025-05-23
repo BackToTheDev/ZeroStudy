@@ -24,6 +24,18 @@ public class DoublyLinkedList {
         this.tail = null;
     }
 
+    public int get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("잘못된 인덱스 입니다.");
+        }
+
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.value;
+    }
+
     public void add(int value) {
         Node newNode = new Node(value);
         if (head == null) {
@@ -57,28 +69,31 @@ public class DoublyLinkedList {
         Node newNode = new Node(value);
 
         if (index < 0 || index > size) {
-            System.out.println("잘못된 인덱스입니다.");
+            System.out.println("잘못된 입력입니다.");
             return;
         }
 
         if (index == 0) {
-           addFirst(value);
-           return;
-        } else if (index == size) {
+            addFirst(value);
+            return;
+        }
+
+        if (index == size) {
             add(value);
             return;
-        } else if(index > 0 && index < size) {
+        } else if (index > 0 && index < size) {
             Node current = head;
+
             for (int i = 0; i < index; i++) {
                 current = current.next;
             }
+
             Node prevNode = current.prev;
+
             prevNode.next = newNode;
-
             newNode.prev = prevNode;
+
             newNode.next = current;
-
-
             current.prev = newNode;
             size++;
         }
@@ -100,14 +115,14 @@ public class DoublyLinkedList {
         }
     }
 
-    public void removeAt(int index) {
+   public void removeAt(int index) {
         if (head == null) {
             System.out.println("리스트가 비어있습니다.");
             return;
         }
 
         if (index < 0 || index >= size) {
-            System.out.println("잘못된 인덱스입니다.");
+            System.out.println("잘못된 번호입니다.");
             return;
         }
 
@@ -116,12 +131,16 @@ public class DoublyLinkedList {
             tail = null;
             size--;
             return;
-        } else if(index == 0) {
+        }
+
+        if (index == 0) {
             head = head.next;
             head.prev = null;
             size--;
             return;
-        } else if (index == size - 1) {
+        }
+
+        if (index == size - 1) {
             tail = tail.prev;
             tail.next = null;
             size--;
@@ -134,9 +153,9 @@ public class DoublyLinkedList {
             current.prev.next = current.next;
             current.next.prev = current.prev;
             size--;
-
+            return;
         }
-    }
+   }
 
     public void remove() {
         Node current = tail;
@@ -201,5 +220,7 @@ class Main {
 
         list.removeAt(1);
         list.printForward();
+
+        System.out.println(list.get(2));
     }
 }
