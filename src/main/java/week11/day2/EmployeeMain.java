@@ -32,12 +32,13 @@ public class EmployeeMain {
                 new Employee("홍길동", 30, "HR"),
                 new Employee("김철수", 27, "IT"),
                 new Employee("이영희", 25, "IT"),
-                new Employee("박민수", 35, "Sales")
+                new Employee("박민수", 35, "Sales"),
+                new Employee("김동동", 34, "HR")
         );
 
         List<String> names = list.stream()
-                .filter(employee -> employee.department.equals("IT"))
-                .sorted(Comparator.comparing(Employee::getAge))
+                .filter(employee -> employee.name.startsWith("김"))
+                .sorted(Comparator.comparing(Employee::getAge).reversed())
                 .map(Employee::getName)
                 .collect(Collectors.toList());
 
