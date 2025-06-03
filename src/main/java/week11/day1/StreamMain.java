@@ -1,4 +1,4 @@
-package week11;
+package week11.day1;
 import java.util.*;
 import java.util.stream.*;
 
