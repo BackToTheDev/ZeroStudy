@@ -46,8 +46,5 @@ public class EmployeeMain1 {
         result.forEach(e ->
                 System.out.println(e.getName() + " " + e.getAge() + " " + e.getSalary())
         );
-
-
-
     }
 }
