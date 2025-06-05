@@ -47,5 +47,19 @@ public class UserMain {
                 .collect(Collectors.toList());
 
         System.out.println(names);
+
+        List<User> user1 = Arrays.asList(
+                new User("Alice", 32, false),
+                new User("Bob", 40, true),
+                new User("Charlie", 35, false),
+                new User("Eva", 29, false)
+        );
+
+        List<String> name = user1.stream()
+                .filter(u -> u.age >= 30 && u.isActive == false && u.name.length() >= 5)
+                .map(u -> u.getName().toLowerCase())
+                .collect(Collectors.toList());
+
+        System.out.println(name);
     }
 }
