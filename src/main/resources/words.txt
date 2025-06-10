@@ -1,9 +1,10 @@
+apple
 banana
 apple
-blueberry
-cherry
-berry
-avocado
 bread
+cherry
+banana
 broccoli
-fig
+data
+egg
+eggplant
