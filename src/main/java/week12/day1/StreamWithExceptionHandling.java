@@ -1,5 +1,4 @@
-package week12;
-import java.util.*;
+package week12.day1;
 import java.util.stream.Stream;
 import java.io.IOException;
 import java.nio.file.Files;
