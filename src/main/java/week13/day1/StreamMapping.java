@@ -1,4 +1,4 @@
-package week13;
+package week13.day1;
 import java.util.Map;
 import java.util.List;
 import java.util.stream.Stream;
