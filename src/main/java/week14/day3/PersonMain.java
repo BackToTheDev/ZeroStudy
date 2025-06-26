@@ -28,6 +28,9 @@ public class PersonMain {
 
         System.out.println(names);
 
+        double avg = persons.stream()
+                .collect(Collectors.averagingInt(Person::getAge));
 
+        System.out.println(avg);
     }
 }
